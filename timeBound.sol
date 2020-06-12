@@ -1,5 +1,3 @@
-pragma solidity >=0.4.21 <0.7.0;
-
 import "./SafeMaths.sol";
 
 contract timeBound{
@@ -14,6 +12,9 @@ contract timeBound{
     
     //import libraries
     using SafeMaths for uint256;
+    
+    //mapping
+    mapping(address => uint256) private _balance;
     
  
  // constructor 
@@ -40,5 +41,10 @@ contract timeBound{
     function decimals() public view returns(uint256){
         return _decimal;
     }
-    
+    function totalSupply() public view returns(uint256){
+        return _totalSupply;
+    }
+    function balanceOf(address account) public view returns(uint256){
+        return _balance[account];
+    }
 }
